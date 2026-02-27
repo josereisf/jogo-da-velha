@@ -1,0 +1,20 @@
+.unidade {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    background-color: white;
+    margin: 3px;
+}
+#tabuleiro {
+    width: 270px;
+    border:5px solid black;
+    background-color: black;
+}
+.selecionarX {
+    background-image: url(x.png);
+    background-size: 80px, 80px;
+}
+.selecionarO{
+    background-image: url(o.png);
+    background-size: 80px, 80px;
+}
