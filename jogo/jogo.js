@@ -1,6 +1,8 @@
 let vez = "x";
 let ponto;
-let pontuacao = 0;
+let rodada = 0;
+let pontuacaoX = 0;
+let pontuacaoO = 0;
 
 let jogo = [0, 0, 0,
     0, 0, 0,
@@ -25,8 +27,8 @@ function selecionar(posicao) {
 
     let id = posicao.getAttribute('id');
     jogo[id] = ponto;
-    pontuacao += 1;
-    console.log(pontuacao);
+    rodada += 1;
+    console.log(rodada);
     if (jogo[0] + jogo[1] + jogo[2] == 3 ||
         jogo[3] + jogo[4] + jogo[5] == 3 ||
         jogo[6] + jogo[7] + jogo[8] == 3 ||
@@ -39,6 +41,8 @@ function selecionar(posicao) {
         jogo[0] + jogo[4] + jogo[8] == 3
     ) {
         alert("X ganhou");
+        pontuacaoX += 1;
+        document.getElementById("pontuacaoX").innerHTML = pontuacaoX;
         for (let i = 0; i < 9; i++) {
             document.getElementById(i).removeAttribute("onclick");
         }
@@ -55,11 +59,13 @@ function selecionar(posicao) {
         jogo[0] + jogo[4] + jogo[8] == 12
     ) {
         alert("O ganhou");
+        pontuacaoO += 1;
+        document.getElementById("pontuacaoO").innerHTML = pontuacaoO;
         for (let i = 0; i < 9; i++) {
             document.getElementById(i).removeAttribute("onclick");
         }
     }
-    else if (pontuacao == 9) {
+    else if (rodada == 9) {
         alert("Deu velha");
     }
 }
@@ -70,6 +76,6 @@ function reiniciar() {
         jogo = [0, 0, 0,
             0, 0, 0,
             0, 0, 0];
-        pontuacao = 0;
+        rodada = 0;
     }
 }
